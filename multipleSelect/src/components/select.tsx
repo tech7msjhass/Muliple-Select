@@ -3,7 +3,7 @@ import styles from "./select.module.css";
 
 export type SelectOption = {
   label: string;
-  value: string | number;
+  value: number;
 };
 
 type MultiSelectProps = {
@@ -84,10 +84,8 @@ const Select = ({ multiple, value, onChange, options }: SelectProps) => {
     containerRef.current?.addEventListener("keydown", handler);
 
     return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       containerRef.current?.removeEventListener("keydown", handler);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, highlightedIndex, options]);
 
   return (
